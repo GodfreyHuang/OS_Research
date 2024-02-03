@@ -1,0 +1,3 @@
+generate .s file: gcc -Og -S mstore.c
+generate .o file: gcc -Og -c mstore.c
+generate .d file: objdump -d mstore.o > mstore.d
