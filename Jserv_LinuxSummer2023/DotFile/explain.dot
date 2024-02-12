@@ -1,0 +1,53 @@
+//digraph G {
+//    splines="FALSE";
+
+    /* Entities */
+//    shortName [label="shortName", shape="square"]
+    
+    /* Relationships */
+//    F1 -> shortName[label="true"]
+
+    /* Ranks */
+//    { rank=same; shortName; };
+//}
+
+/*
+digraph G {
+    strcutClock [shape="square"]
+    structNode_head [shape="square"]
+    structNode_sec [shape="square"]
+    structNode_last [shape="square"]
+
+    structNode_head -> strcutClock
+    structNode_sec -> strcutClock
+    structNode_last -> strcutClock
+
+    abc [color="red"]
+}
+*/
+
+digraph structs {
+	node [shape=record]
+    graph [
+    rankdir = "LR"
+    ];
+	clock [
+        label="<f0> clock|{<f1> ticks|<f2> mutex|<f3> cond}"
+    ];
+	node_head [
+        label="<f0> node_head|{<f1> clock|<f2> parent|<f3> mutex|<f4> cond|<f5> ready}"
+        id = 0
+    ];
+	node_member [
+        label="<f0> node|{<f1> clock|<f2> parent|<f3> mutex|<f4> cond|<f5> ready}"
+        id = 1
+    ];
+	null [
+        label="<f0> NULL"
+    ];
+
+	node_head:f1 -> clock:f0
+	node_head:f2 -> null:f0
+	node_member:f1 -> clock:f0
+	node_member:f2 -> node_head:f0
+}

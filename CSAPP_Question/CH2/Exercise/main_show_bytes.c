@@ -1,7 +1,6 @@
 //main_show_bytes.c
 //Function: Doing practice in text content of chapter2
 //Author:   Godfrey
-//Date:     2023/06/07
 
 #include <stdio.h>
 #include <string.h>

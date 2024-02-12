@@ -143,15 +143,14 @@ printResult:
     la a1, str         
     li a2, str_size   
     ecall              
-        
-    mv a1, a3
-    addi a1, a1, 48
-    sw a1, 0(sp)
-    addi a1, sp, 0
-    li a7, SYSWRITE    
-    li a0, 1     
-    li a2, 4
-    ecall  
+
+    addi a3, a3, 48         # change number to ascii digit
+    sw   a3, 0(sp)          # push the result onto the stack
+    li   a0, 1              # 1 = standard output (stdout)
+    mv   a1, sp             # pass the stack address to a1
+    li   a2, 1              # length of value digit
+    li   a7, SYSWRITE       # "write" syscall
+    ecall
         
     li a7, SYSWRITE    
     li a0, 1           
